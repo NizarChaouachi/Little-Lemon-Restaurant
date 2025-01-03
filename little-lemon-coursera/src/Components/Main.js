@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Main() {
+function Main({ children }) {
     return (
         <main>
+            {children}
         </main>
     );
 }
 
 export default Main;
+
