@@ -2,10 +2,10 @@ import CallToAction from './CallToAction';
 import CustomersSay from './CustomerSays';
 import BookingPage from './BookingPage';
 import Specials from './Specials';
-import Chicago from './Chicago';
+import About from './About';
 function Homepage() {
     return (<>
-            <Chicago />
+            <About />
             <CallToAction />
             <CustomersSay />
             <Specials />

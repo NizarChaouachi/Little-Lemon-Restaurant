@@ -8,7 +8,7 @@ function CustomersSay() {
     ];
 
     return (
-        <section className="testimonials">
+        <section className="customers-say">
             <h2>What Our Customers Say</h2>
             <div>
                 {testimonials.map((testimonial, index) => (
