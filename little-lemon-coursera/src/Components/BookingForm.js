@@ -5,6 +5,7 @@ const BookingForm = ({ availableTimes, dispatch,submitForm }) => {
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
+  const [name,setName]=useState('')
 
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
@@ -21,6 +22,15 @@ const BookingForm = ({ availableTimes, dispatch,submitForm }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="res-name">  Your Name</label>
+      <input 
+        type="text" 
+        id="res-date" 
+        value={name} 
+        onChange={(e)=>setName(e.target.value)}
+        required 
+        minLength={5}
+      />
       <label htmlFor="res-date">Choose date</label>
       <input 
         type="date" 
