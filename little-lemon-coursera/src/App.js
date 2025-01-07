@@ -9,7 +9,7 @@ import CustomersSay from './Components/CustomerSays';
 import BookingPage from './Components/BookingPage';
 import Specials from './Components/Specials';
 import About from './Components/About';
-
+import ConfirmedBooking from './Components/ConfirmedBooking';
 function App() {
     return (
         <Router>
@@ -24,6 +24,7 @@ function App() {
                 <Route path="/booking" element={<BookingPage />} />
                 <Route path="/order" element={<CallToAction />} />
                 <Route path="/contact" element={<CustomersSay />} />
+                <Route path="/confirmed" element={<ConfirmedBooking />} />
             </Routes>
             <Footer />
         </Router>

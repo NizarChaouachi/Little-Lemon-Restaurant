@@ -11,6 +11,7 @@ function Nav() {
                 <li><Link to="/booking">Book a Table</Link></li>
                 <li><Link to="/order">Order</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
+                
             </ul>
         </nav>
     );

@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useState, useReducer } from 'react';
+import BookingForm from './BookingForm';
+import { fetchAPI,submitAPI } from './ApiFetch';
+import { useNavigate } from 'react-router-dom';
+const initializeTimes = () => {
+  const today = new Date(); 
+  return fetchAPI(today);  
+};
+
+
+const updateTimes = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_TIMES':
+      return fetchAPI(new Date(action.payload));
+    default:
+      return state;
+  }
+};
 
 function BookingPage() {
-    return (
-        <section className="booking-page">
-            <h2>Book a Table</h2>
-            <form>
-                <label htmlFor="date">Date:</label>
-                <input type="date" id="date" name="date" />
-                <label htmlFor="time">Time:</label>
-                <input type="time" id="time" name="time" />
-                <label htmlFor="guests">Number of Guests:</label>
-                <input type="number" id="guests" name="guests" min="1" />
-                <button type="submit">Reserve</button>
-            </form>
-        </section>
-    );
-}
+  const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+  const navigate = useNavigate();
+
+  const submitForm = (formData) => {
+    if (submitAPI(formData)) {
+      navigate('/confirmed'); // Navigate to the confirmation page
+    }
+  };
+  return (
+    <div className="booking-page">
+      <h1>Reserve Your Table</h1>
+      <p>Enjoy a wonderful dining experience at Little Lemon.</p>
+      <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
+    </div>
+  );
+};
 
 export default BookingPage;
